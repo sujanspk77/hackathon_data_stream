@@ -1,0 +1,20 @@
+{
+    "name": "inventory-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "tasks.max": "1",
+        "database.hostname": "localhost",
+        "database.port": "5432",
+        "database.user": "postgres-user",
+        "database.password": "postgres-pw",
+        "database.dbname" : "mydb",
+        "database.server.name": "dbserver1",
+        "database.whitelist": "transactions",
+        "database.history.kafka.bootstrap.servers": "kafka:9092",
+        "database.history.kafka.topic": "schema-changes.transactions",
+        "slot.name" : "my_slot_name01"
+    }
+}
+
+//curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-postgres.json
+//docker exec -it postgres /bin/bash 

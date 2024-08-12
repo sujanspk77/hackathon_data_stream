@@ -1,0 +1,31 @@
+DOCKER 
+    -> docker compose -f docker-compose.yml up -d --build (for first run)
+    -> docker compose -f docker-compose.yml up -d
+    -> docker images (to see list of images)
+    -> docker ps (to list all running Docker containers)
+
+POSTGRESQL
+
+--pull image 
+    docker compose -f /home/Hackathon/data-stream/databases/postgres-sql/docker-compose.yml up -d
+
+--install postgresql client 
+     apt-get install -y postgresql-client
+
+-- connect to server 
+    psql -h localhost -p 5432 -U postgres-user -d mydb
+
+    commands : 
+    1. List all databases - \l
+    2. Switch to another database - \c
+    3. List database tables - \dt
+    4. Describe a table - \d
+    5. List all schemas - \dn
+
+PYTHON 
+ - pip install faker 
+ - psycopg2 -> https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries
+
+
+ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-postgres.json
+ docker exec -it postgres /bin/bash 
